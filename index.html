@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NLP handon3</title>
+  <link rel="stylesheet" href="node_modules/flexboxgrid/dist/flexboxgrid.min.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <section id="app" class="row">
+    <div class="col-sm movie-cover">
+      <img src="img/simpsons.jpg">
+    </div>
+    <div class="col-sm movie-detail">
+      <p><b>電影名稱 / Movie Name</b></p>
+      <p>辛普森家庭 / The Simpsons</p>
+      <p><b>電影描述 / Describe</b></p>
+      <p>馬特·格朗寧為美國福斯廣播公司創作的一部成人動畫情景喜劇。該劇通過展現荷馬、美枝、霸子、花枝和奶嘴一家五口的日常生活，諷刺性地描繪了美國中產階級的生活方式。空間設定於虛構小鎮內糊的《辛普森家庭》，幽默地嘲諷了美國文化、社會、電視節目和人生百態。</p>
+      <p><b>生成電影名稱</b></p>
+      <div>
+        <p><b>評分 / Ranking</b></p>
+        <div id="score-bar">
+          <div class="stars-bar">
+            <svg viewBox="0 12.705 512 486.59" x="0px" y="0px" width="40px" height="40px" fill="gray"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon></svg>
+            <svg viewBox="0 12.705 512 486.59" x="0px" y="0px" width="40px" height="40px" fill="gray"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon></svg>
+            <svg viewBox="0 12.705 512 486.59" x="0px" y="0px" width="40px" height="40px" fill="gray"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon></svg>
+            <svg viewBox="0 12.705 512 486.59" x="0px" y="0px" width="40px" height="40px" fill="gray"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon></svg>
+            <svg viewBox="0 12.705 512 486.59" x="0px" y="0px" width="40px" height="40px" fill="gray"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon></svg>
+          </div>
+          <div class="value-bar" value="2">
+            <svg viewBox="0 12.705 512 486.59" x="0px" y="0px" width="40px" height="40px" fill="#f39c12"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon></svg>
+            <svg viewBox="0 12.705 512 486.59" x="0px" y="0px" width="40px" height="40px" fill="#f39c12"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon></svg>
+            <svg viewBox="0 12.705 512 486.59" x="0px" y="0px" width="40px" height="40px" fill="#f39c12"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon></svg>
+            <svg viewBox="0 12.705 512 486.59" x="0px" y="0px" width="40px" height="40px" fill="#f39c12"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon></svg>
+            <svg viewBox="0 12.705 512 486.59" x="0px" y="0px" width="40px" height="40px" fill="#f39c12"><polygon points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon></svg>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p id="score-value">-1</p>
+      </div>
+      <div class="next-movie-container">
+        <button id="submit-btn" class="next-movie-btn">下一部 / Next Movie</button>
+      </div>
+    </div>
+  </section>
+  <form id="mturk_form" name="mturk_form">
+    <input name="assignmentId" type="hidden">
+    <input name="score" type="number" value="0">
+  </form>
+  <script src="node_modules/qs/dist/qs.js"></script>
+  <script src="js/global.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/score-bar.js"></script>
+  <script src="js/form.js"></script>
+</body>
+</html>
